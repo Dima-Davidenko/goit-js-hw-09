@@ -11,7 +11,7 @@
   "browserslist": "since 2010",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build"
+    "build": "parcel build --public-url /goit-js-hw-09/"
   },
   "repository": {
     "type": "git",
