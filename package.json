@@ -1,0 +1,29 @@
+{
+  "name": "goit-js-hw-09",
+  "version": "1.0.0",
+  "description": "My homework #9 js",
+  "source": "src/index.html",
+  "targets": {
+    "default": {
+      "distDir": "./output"
+    }
+  },
+  "browserslist": "since 2010",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dima-Davidenko/goit-js-hw-09.git"
+  },
+  "author": "Dima Davidenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dima-Davidenko/goit-js-hw-09/issues"
+  },
+  "homepage": "https://github.com/Dima-Davidenko/goit-js-hw-09#readme",
+  "devDependencies": {
+    "parcel": "^2.7.0"
+  }
+}
