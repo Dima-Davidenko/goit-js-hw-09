@@ -1,0 +1,23 @@
+body {
+  padding: 20px;
+}
+.timer {
+  display: flex;
+  margin-top: 20px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.field:not(:last-child) {
+  margin-right: 20px;
+}
+.value {
+  font-size: 40px;
+  line-height: 1;
+}
+.label {
+  text-transform: uppercase;
+  font-size: 14px;
+}
