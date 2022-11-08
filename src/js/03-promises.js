@@ -1,12 +1,11 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { notifyFailureMessage, notifySuccesMessage } from './utils/settings.js';
 
-const refs = {
-  form: document.querySelector('.form'),
-};
+const form = document.querySelector('.form');
 
 function handleFormSubmit(event) {
-  const { elements } = this;
   event.preventDefault();
+  const { elements } = event.currentTarget;
   const delay = +elements.delay.value;
   const step = +elements.step.value;
   const amount = +elements.amount.value;
@@ -14,37 +13,25 @@ function handleFormSubmit(event) {
 }
 
 function createShowPromisesProgram({ delay, step, amount }) {
-  for (let i = 1; i <= amount; i++) {
-    createPromise(i, delay)
+  for (let i = 0; i < amount; i++) {
+    createPromise(i + 1, delay + step * i)
       .then(({ position, delay }) => {
-        showSuccessNotification(
-          `✅ Fulfilled promise ${position} in ${delay}ms`
+        Notify.success(
+          `✅ Fulfilled promise ${position} in ${delay}ms`,
+          notifySuccesMessage
         );
       })
       .catch(({ position, delay }) => {
-        showFailuresNotification(
-          `❌ Fulfilled promise ${position} in ${delay}ms`
+        Notify.failure(
+          `❌ Fulfilled promise ${position} in ${delay}ms`,
+          notifyFailureMessage
         );
       });
-    delay += step;
   }
 }
 
-function showSuccessNotification(message) {
-  Notify.success(message, {
-    cssAnimationStyle: 'zoom',
-    position: 'right-bottom',
-  });
-}
-function showFailuresNotification(message) {
-  Notify.failure(message, {
-    cssAnimationStyle: 'from-right',
-    position: 'right-bottom',
-  });
-}
-
 function createPromise(position, delay) {
-  const shouldResolve = Math.random() > 0.5;
+  const shouldResolve = Math.random() > 0.3;
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (shouldResolve) {
@@ -55,4 +42,4 @@ function createPromise(position, delay) {
   });
 }
 
-refs.form.addEventListener('submit', handleFormSubmit);
+form.addEventListener('submit', handleFormSubmit);
