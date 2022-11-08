@@ -16,7 +16,7 @@ function handleFormSubmit(event) {
 }
 
 function createShowPromisesProgram({ delay, step, amount }) {
-  for (let i = 0; i < amount; i++) {
+  for (let i = 0; i < amount; i += 1) {
     createPromise(i + 1, delay + step * i)
       .then(({ position, delay }) => {
         Notify.success(
