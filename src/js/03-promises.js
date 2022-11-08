@@ -1,5 +1,8 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { notifyFailureMessage, notifySuccesMessage } from './utils/settings.js';
+import {
+  notifyFailureMessageOpts,
+  notifySuccesMessageOpts,
+} from './utils/settings.js';
 
 const form = document.querySelector('.form');
 
@@ -18,13 +21,13 @@ function createShowPromisesProgram({ delay, step, amount }) {
       .then(({ position, delay }) => {
         Notify.success(
           `✅ Fulfilled promise ${position} in ${delay}ms`,
-          notifySuccesMessage
+          notifySuccesMessageOpts
         );
       })
       .catch(({ position, delay }) => {
         Notify.failure(
           `❌ Fulfilled promise ${position} in ${delay}ms`,
-          notifyFailureMessage
+          notifyFailureMessageOpts
         );
       });
   }

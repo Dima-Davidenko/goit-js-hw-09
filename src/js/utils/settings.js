@@ -11,11 +11,11 @@ export const errorMessage = [
   'Ладно, я все понял',
 ];
 
-export const notifySuccesMessage = {
+export const notifySuccesMessageOpts = {
   cssAnimationStyle: 'zoom',
   position: 'right-bottom',
 };
-export const notifyFailureMessage = {
+export const notifyFailureMessageOpts = {
   cssAnimationStyle: 'from-right',
   position: 'right-bottom',
 };
